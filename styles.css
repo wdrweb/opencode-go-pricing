@@ -66,7 +66,7 @@ button {
 }
 
 .page {
-	max-width: 1120px;
+	max-width: 1440px;
 	margin: 0 auto;
 	padding: 28px 24px 24px;
 	display: flex;
@@ -240,13 +240,13 @@ select:focus-visible { outline: 2px solid var(--success); outline-offset: 1px; }
 .model-table {
 	width: 100%;
 	border-collapse: collapse;
-	font-size: 13px;
+	font-size: 12.5px;
 	font-variant-numeric: tabular-nums;
 }
 
 .model-table th,
 .model-table td {
-	padding: 8px 14px;
+	padding: 6px 10px;
 	border-bottom: 1px solid var(--border-l1);
 	text-align: right;
 	white-space: nowrap;
@@ -286,6 +286,29 @@ select:focus-visible { outline: 2px solid var(--success); outline-offset: 1px; }
 .model-table .best-val { color: var(--success); font-weight: 650; }
 .model-table .arrow { opacity: 0.75; font-size: 9.5px; margin-left: 3px; }
 .model-table .emptystate { text-align: center; color: var(--label-3); padding: 26px 14px; }
+
+/* Effective-cost columns: hidden when the toggle is off (default on wide
+   screens; no horizontal scrolling in the default layout). */
+#tableWrap[data-eff="off"] .eff { display: none; }
+
+/* toggle */
+.switch-label {
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 12.5px;
+	color: var(--label-2);
+	white-space: nowrap;
+	user-select: none;
+}
+
+.switch-label input[type="checkbox"] {
+	accent-color: var(--success);
+	width: 14px;
+	height: 14px;
+	cursor: pointer;
+}
 
 /* ---------- footer ---------- */
 .foot {

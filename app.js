@@ -72,13 +72,13 @@ const state = {
 const COLS = [
 	{ key: "name", label: "Model" },
 	{ key: "inp", label: "Input" },
-	{ key: "ein", label: "Eff In" },
+	{ key: "ein", label: "Eff In", eff: true },
 	{ key: "out", label: "Output" },
-	{ key: "eout", label: "Eff Out" },
+	{ key: "eout", label: "Eff Out", eff: true },
 	{ key: "cr", label: "Cache Read" },
-	{ key: "ecr", label: "Eff CR" },
+	{ key: "ecr", label: "Eff CR", eff: true },
 	{ key: "cw", label: "Cache Write" },
-	{ key: "ecw", label: "Eff CW" },
+	{ key: "ecw", label: "Eff CW", eff: true },
 	{ key: "usage", label: "Included/mo" },
 	{ key: "value", label: "Value" }
 ];
@@ -312,7 +312,7 @@ function render() {
 		});
 		for (const r of sorted) {
 			const tr = el("tr", best && r === best ? { class: "hlrow" } : null,
-				COLS.map((c) => el("td", null, [renderCell(r, c.key)])));
+				COLS.map((c) => el("td", c.eff ? { class: "eff" } : null, [renderCell(r, c.key)])));
 			tbody.appendChild(tr);
 		}
 	}
@@ -380,6 +380,37 @@ function applyTheme(theme) {
 }
 
 /* ------------------------------------------------------------------ *
+ * Effective-column visibility (keeps the table free of horizontal
+ * scrolling): toggle persists; with no saved preference the columns are
+ * shown on wide windows and hidden on narrow ones.
+ * ------------------------------------------------------------------ */
+function applyEffVisibility(show) {
+	const wrap = document.getElementById("tableWrap");
+	if (wrap) wrap.setAttribute("data-eff", show ? "on" : "off");
+	const toggle = document.getElementById("effToggle");
+	if (toggle) toggle.checked = !!show;
+}
+
+function initEffToggle() {
+	let show;
+	try {
+		const pref = localStorage.getItem("mdlc-eff");
+		show = pref === "on" ? true : pref === "off" ? false : null;
+	} catch (e) { show = null; }
+	if (show == null) {
+		show = !(window.matchMedia && !window.matchMedia("(min-width: 1180px)").matches);
+	}
+	applyEffVisibility(show);
+	const toggle = document.getElementById("effToggle");
+	if (toggle && toggle.addEventListener) {
+		toggle.addEventListener("change", () => {
+			applyEffVisibility(toggle.checked);
+			try { localStorage.setItem("mdlc-eff", toggle.checked ? "on" : "off"); } catch (e) { /* ignore */ }
+		});
+	}
+}
+
+/* ------------------------------------------------------------------ *
  * Wire up events
  * ------------------------------------------------------------------ */
 document.addEventListener("DOMContentLoaded", () => {
@@ -436,6 +467,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		applyTheme(next);
 		themeBtn.textContent = next === "dark" ? "Light" : "Dark";
 	});
+
+	initEffToggle();
 
 	render();
 	refresh();
