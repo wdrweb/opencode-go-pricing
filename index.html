@@ -41,9 +41,13 @@
 				<select id="sortSelect">
 					<option value="value">Value</option>
 					<option value="inp">Input price</option>
+					<option value="ein">Effective input</option>
 					<option value="out">Output price</option>
+					<option value="eout">Effective output</option>
 					<option value="cr">Cache read</option>
+					<option value="ecr">Effective cache read</option>
 					<option value="cw">Cache write</option>
+					<option value="ecw">Effective cache write</option>
 					<option value="usage">Included usage</option>
 					<option value="name">Name</option>
 				</select>
@@ -54,7 +58,7 @@
 
 		<div id="banner" class="banner" role="status"></div>
 
-		<p class="subnote">Prices per 1M tokens. Value = monthly credit &divide; output price = million output tokens your credit covers per month (higher is better). Click a column header to sort.</p>
+		<p class="subnote">Prices per 1M tokens. Value = monthly credit &divide; output price = million output tokens your credit covers per month (higher is better). Effective costs = price &divide; (10 &times; monthly credit) &mdash; the same price normalized per ten months of credit (lower is better). Click a column header to sort.</p>
 
 		<div class="table-wrap">
 			<table class="model-table">
@@ -62,9 +66,13 @@
 					<tr>
 						<th data-key="name" scope="col">Model</th>
 						<th data-key="inp" scope="col">Input</th>
+						<th data-key="ein" scope="col" title="Effective input cost = input price ÷ (10 × monthly credit); lower is better">Eff In</th>
 						<th data-key="out" scope="col">Output</th>
+						<th data-key="eout" scope="col" title="Effective output cost = output price ÷ (10 × monthly credit); lower is better">Eff Out</th>
 						<th data-key="cr" scope="col">Cache Read</th>
+						<th data-key="ecr" scope="col" title="Effective cache-read cost = cache read price ÷ (10 × monthly credit); lower is better">Eff CR</th>
 						<th data-key="cw" scope="col">Cache Write</th>
+						<th data-key="ecw" scope="col" title="Effective cache-write cost = cache write price ÷ (10 × monthly credit); lower is better">Eff CW</th>
 						<th data-key="usage" scope="col">Included/mo</th>
 						<th data-key="value" scope="col" title="Monthly credit ÷ output price = million output tokens/mo covered by credit; higher is better">Value</th>
 					</tr>

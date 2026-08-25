@@ -8,6 +8,9 @@ model is starred and highlighted.
 ## Features
 
 - Sortable table (click any column header; arrows show the active sort)
+- Effective-cost columns for Input / Output / Cache Read / Cache Write:
+  `price ÷ (10 × monthly credit)` — the price normalized per ten months of
+  credit (lower is better)
 - Filter by included-usage tier ($15 / $30 / $60 / free)
 - Value column + best-value banner
 - Dark / light theme toggle (persisted)

@@ -72,9 +72,13 @@ const state = {
 const COLS = [
 	{ key: "name", label: "Model" },
 	{ key: "inp", label: "Input" },
+	{ key: "ein", label: "Eff In" },
 	{ key: "out", label: "Output" },
+	{ key: "eout", label: "Eff Out" },
 	{ key: "cr", label: "Cache Read" },
+	{ key: "ecr", label: "Eff CR" },
 	{ key: "cw", label: "Cache Write" },
+	{ key: "ecw", label: "Eff CW" },
 	{ key: "usage", label: "Included/mo" },
 	{ key: "value", label: "Value" }
 ];
@@ -204,14 +208,26 @@ function derivedRows() {
 	return { rows, best };
 }
 
+/** Effective cost = price ÷ (10 × monthly credit). Same shape as the base
+ *  price columns, so it sorts and renders like any other numeric column. */
+function effCost(m, field) {
+	const price = m[field];
+	if (price == null || m.usage == null) return null;
+	return price / (10 * m.usage);
+}
+
 function cellVal(r, key) {
 	const m = r.model;
 	switch (key) {
 		case "name": return m.name;
 		case "inp": return m.inp;
+		case "ein": return effCost(m, "inp");
 		case "out": return m.out;
+		case "eout": return effCost(m, "out");
 		case "cr": return m.cacheR;
+		case "ecr": return effCost(m, "cacheR");
 		case "cw": return m.cacheW;
+		case "ecw": return effCost(m, "cacheW");
 		case "usage": return m.usage;
 		case "value": return r.value;
 		default: return null;
