@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Model Pricing &amp; Value</title>
+	<meta name="description" content="OpenCode Go model pricing and value — live data from opencode.ai/docs/go with an embedded snapshot fallback.">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="page">
+
+		<header class="top">
+			<div class="top-title">
+				<h1>Model Pricing &amp; Value</h1>
+				<p class="tagline">OpenCode Go &middot; prices per 1M tokens</p>
+			</div>
+			<div class="top-actions">
+				<span id="srcPill" class="pill" data-state="loading" title="">
+					<span class="pill-dot" aria-hidden="true"></span>
+					<span id="srcText">Loading live prices&hellip;</span>
+				</span>
+				<button id="refreshBtn" class="btn" type="button" title="Re-fetch live prices from opencode.ai/docs/go">&#x21BB; Refresh</button>
+				<button id="themeBtn" class="btn" type="button" title="Toggle light / dark theme">Theme</button>
+			</div>
+		</header>
+
+		<section class="controls" aria-label="Table controls">
+			<div class="control-group">
+				<label for="filterSelect">Filter included usage</label>
+				<select id="filterSelect">
+					<option value="all">All</option>
+					<option value="15">$15/mo</option>
+					<option value="30">$30/mo</option>
+					<option value="60">$60/mo</option>
+					<option value="free">Free</option>
+				</select>
+			</div>
+			<div class="control-group">
+				<label for="sortSelect">Sort by</label>
+				<select id="sortSelect">
+					<option value="value">Value</option>
+					<option value="inp">Input price</option>
+					<option value="out">Output price</option>
+					<option value="cr">Cache read</option>
+					<option value="cw">Cache write</option>
+					<option value="usage">Included usage</option>
+					<option value="name">Name</option>
+				</select>
+			</div>
+			<div id="countLabel" class="count" aria-live="polite"></div>
+			<button id="resetBtn" class="btn btn-ghost" type="button" title="Reset filter and sort to defaults">Reset</button>
+		</section>
+
+		<div id="banner" class="banner" role="status"></div>
+
+		<p class="subnote">Prices per 1M tokens. Value = monthly credit &divide; output price = million output tokens your credit covers per month (higher is better). Click a column header to sort.</p>
+
+		<div class="table-wrap">
+			<table class="model-table">
+				<thead>
+					<tr>
+						<th data-key="name" scope="col">Model</th>
+						<th data-key="inp" scope="col">Input</th>
+						<th data-key="out" scope="col">Output</th>
+						<th data-key="cr" scope="col">Cache Read</th>
+						<th data-key="cw" scope="col">Cache Write</th>
+						<th data-key="usage" scope="col">Included/mo</th>
+						<th data-key="value" scope="col" title="Monthly credit ÷ output price = million output tokens/mo covered by credit; higher is better">Value</th>
+					</tr>
+				</thead>
+				<tbody id="tbody"></tbody>
+			</table>
+		</div>
+
+		<footer class="foot">
+			<span>Embedded snapshot data &mdash; the page works fully offline.</span>
+			<span id="footSrc"></span>
+		</footer>
+
+	</div>
+	<script src="pricing-core.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+{
+  "source": "live",
+  "fetchedAt": "2026-08-25T17:38:10.381Z",
+  "models": [
+    {
+      "name": "Grok 4.6 (≤ 200K tokens)",
+      "inp": 2,
+      "out": 6,
+      "cacheR": 0.5,
+      "cacheW": null,
+      "usage": 15
+    },
+    {
+      "name": "Grok 4.6 (> 200K tokens)",
+      "inp": 4,
+      "out": 12,
+      "cacheR": 1,
+      "cacheW": null,
+      "usage": 15
+    },
+    {
+      "name": "GPT 5.6 Luna (≤ 272K tokens)",
+      "inp": 0.2,
+      "out": 1.2,
+      "cacheR": 0.02,
+      "cacheW": 0.25,
+      "usage": 15
+    },
+    {
+      "name": "GPT 5.6 Luna (> 272K tokens)",
+      "inp": 0.4,
+      "out": 1.8,
+      "cacheR": 0.04,
+      "cacheW": 0.5,
+      "usage": 15
+    },
+    {
+      "name": "GLM-5.3",
+      "inp": 1.4,
+      "out": 4.4,
+      "cacheR": 0.26,
+      "cacheW": null,
+      "usage": 15
+    },
+    {
+      "name": "GLM-5.2",
+      "inp": 1.4,
+      "out": 4.4,
+      "cacheR": 0.26,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "GLM-5.1",
+      "inp": 1.4,
+      "out": 4.4,
+      "cacheR": 0.26,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "Kimi K3",
+      "inp": 3,
+      "out": 15,
+      "cacheR": 0.3,
+      "cacheW": null,
+      "usage": 15
+    },
+    {
+      "name": "Kimi K2.7 Code",
+      "inp": 0.95,
+      "out": 4,
+      "cacheR": 0.19,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "Kimi K2.6",
+      "inp": 0.95,
+      "out": 4,
+      "cacheR": 0.16,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "LongCat-2.0",
+      "inp": 0.3,
+      "out": 1.2,
+      "cacheR": 0.006,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "MiMo V2.5",
+      "inp": 0.14,
+      "out": 0.28,
+      "cacheR": 0.0028,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "MiMo V2.5 Pro",
+      "inp": 0.435,
+      "out": 0.87,
+      "cacheR": 0.003625,
+      "cacheW": null,
+      "usage": 15
+    },
+    {
+      "name": "MiniMax M3",
+      "inp": 0.3,
+      "out": 1.2,
+      "cacheR": 0.06,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "MiniMax M2.7",
+      "inp": 0.3,
+      "out": 1.2,
+      "cacheR": 0.06,
+      "cacheW": 0.375,
+      "usage": 60
+    },
+    {
+      "name": "MiniMax M2.5",
+      "inp": 0.3,
+      "out": 1.2,
+      "cacheR": 0.06,
+      "cacheW": 0.375,
+      "usage": 60
+    },
+    {
+      "name": "Muse Spark 1.2 Contributor",
+      "inp": 0.1,
+      "out": 0.2,
+      "cacheR": 0.002,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "Qwen3.8 Max",
+      "inp": 2,
+      "out": 6,
+      "cacheR": 0.25,
+      "cacheW": 2.5,
+      "usage": 15
+    },
+    {
+      "name": "Qwen3.7 Max",
+      "inp": 2.5,
+      "out": 7.5,
+      "cacheR": 0.5,
+      "cacheW": 3.125,
+      "usage": 60
+    },
+    {
+      "name": "Qwen3.7 Plus (≤ 256K tokens)",
+      "inp": 0.4,
+      "out": 1.6,
+      "cacheR": 0.04,
+      "cacheW": 0.5,
+      "usage": 60
+    },
+    {
+      "name": "Qwen3.7 Plus (> 256K tokens)",
+      "inp": 1.2,
+      "out": 4.8,
+      "cacheR": 0.12,
+      "cacheW": 1.5,
+      "usage": 60
+    },
+    {
+      "name": "Qwen3.6 Plus (≤ 256K tokens)",
+      "inp": 0.5,
+      "out": 3,
+      "cacheR": 0.05,
+      "cacheW": 0.625,
+      "usage": 60
+    },
+    {
+      "name": "Qwen3.6 Plus (> 256K tokens)",
+      "inp": 2,
+      "out": 6,
+      "cacheR": 0.2,
+      "cacheW": 2.5,
+      "usage": 60
+    },
+    {
+      "name": "DeepSeek V4 Pro (Off-Peak)",
+      "inp": 0.66,
+      "out": 1.98,
+      "cacheR": 0.022,
+      "cacheW": null,
+      "usage": 15
+    },
+    {
+      "name": "DeepSeek V4 Pro (Peak)",
+      "inp": 1.32,
+      "out": 3.96,
+      "cacheR": 0.044,
+      "cacheW": null,
+      "usage": 15
+    },
+    {
+      "name": "DeepSeek V4 Flash (Off-Peak)",
+      "inp": 0.22,
+      "out": 0.66,
+      "cacheR": 0.007,
+      "cacheW": null,
+      "usage": 30
+    },
+    {
+      "name": "DeepSeek V4 Flash (Peak)",
+      "inp": 0.44,
+      "out": 1.32,
+      "cacheR": 0.014,
+      "cacheW": null,
+      "usage": 30
+    },
+    {
+      "name": "DeepSeek V4 Flash Vision Exp (Off-Peak)",
+      "inp": 0.22,
+      "out": 0.66,
+      "cacheR": 0.007,
+      "cacheW": null,
+      "usage": 15
+    },
+    {
+      "name": "DeepSeek V4 Flash Vision Exp (Peak)",
+      "inp": 0.44,
+      "out": 1.32,
+      "cacheR": 0.014,
+      "cacheW": null,
+      "usage": 15
+    },
+    {
+      "name": "Hy3",
+      "inp": 0.14,
+      "out": 0.58,
+      "cacheR": 0.035,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "Ox Alpha Free",
+      "inp": null,
+      "out": null,
+      "cacheR": null,
+      "cacheW": null,
+      "usage": null
+    }
+  ]
+}
