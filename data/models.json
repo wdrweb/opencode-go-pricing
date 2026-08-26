@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-08-26T11:29:05.019Z",
+  "fetchedAt": "2026-08-26T11:59:08.686Z",
   "models": [
     {
       "name": "Grok 4.6 (≤ 200K tokens)",
@@ -241,14 +241,6 @@
       "cacheR": 0.035,
       "cacheW": null,
       "usage": 60
-    },
-    {
-      "name": "Ox Alpha Free",
-      "inp": null,
-      "out": null,
-      "cacheR": null,
-      "cacheW": null,
-      "usage": null
     }
   ]
 }
