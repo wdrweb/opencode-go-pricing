@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-08-28T00:15:01.462Z",
+  "fetchedAt": "2026-08-28T11:38:28.663Z",
   "models": [
     {
       "name": "Grok 4.6 (≤ 200K tokens)",
@@ -153,6 +153,14 @@
       "cacheR": 0.25,
       "cacheW": 2.5,
       "usage": 15
+    },
+    {
+      "name": "Qwen3.8 Flash",
+      "inp": 0.15,
+      "out": 0.47,
+      "cacheR": 0.016,
+      "cacheW": 0.2,
+      "usage": 30
     },
     {
       "name": "Qwen3.7 Max",
