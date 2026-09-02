@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-09-02T14:07:09.375Z",
+  "fetchedAt": "2026-09-02T17:58:59.972Z",
   "models": [
     {
       "name": "Grok 4.6 (≤ 200K tokens)",
@@ -136,6 +136,14 @@
       "out": 1.2,
       "cacheR": 0.06,
       "cacheW": 0.375,
+      "usage": 60
+    },
+    {
+      "name": "Muse Spark 1.3 Contributor",
+      "inp": 0.1,
+      "out": 0.2,
+      "cacheR": 0.002,
+      "cacheW": null,
       "usage": 60
     },
     {
