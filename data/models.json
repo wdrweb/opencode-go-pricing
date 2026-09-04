@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-09-04T03:08:45.001Z",
+  "fetchedAt": "2026-09-04T08:08:42.112Z",
   "models": [
     {
       "name": "Grok 4.6 (≤ 200K tokens)",
@@ -273,6 +273,14 @@
       "cacheR": 0.035,
       "cacheW": null,
       "usage": 60
+    },
+    {
+      "name": "Omen Alpha",
+      "inp": 0.2,
+      "out": 0.66,
+      "cacheR": 0.04,
+      "cacheW": null,
+      "usage": 100
     }
   ]
 }
