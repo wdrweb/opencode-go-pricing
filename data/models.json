@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-09-06T08:02:45.477Z",
+  "fetchedAt": "2026-09-06T12:14:49.014Z",
   "models": [
     {
       "name": "Grok 4.6 (≤ 200K tokens)",
