@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-09-09T14:11:31.824Z",
+  "fetchedAt": "2026-09-09T17:54:34.121Z",
   "models": [
     {
       "name": "Grok 4.6 (≤ 200K tokens)",
@@ -40,7 +40,7 @@
       "out": 0.5,
       "cacheR": 0.03,
       "cacheW": null,
-      "usage": 15
+      "usage": 60
     },
     {
       "name": "GLM-5.3",
