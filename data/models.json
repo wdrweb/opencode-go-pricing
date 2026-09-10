@@ -1,38 +1,14 @@
 {
   "source": "live",
-  "fetchedAt": "2026-09-09T22:43:11.344Z",
+  "fetchedAt": "2026-09-10T00:52:09.361Z",
   "models": [
     {
-      "name": "Grok 4.6 (≤ 200K tokens)",
-      "inp": 2,
-      "out": 6,
-      "cacheR": 0.5,
-      "cacheW": null,
-      "usage": 15
-    },
-    {
-      "name": "Grok 4.6 (> 200K tokens)",
-      "inp": 4,
-      "out": 12,
-      "cacheR": 1,
-      "cacheW": null,
-      "usage": 15
-    },
-    {
-      "name": "GPT 5.6 Luna (≤ 272K tokens)",
+      "name": "Omen Alpha",
       "inp": 0.2,
-      "out": 1.2,
-      "cacheR": 0.02,
-      "cacheW": 0.25,
-      "usage": 15
-    },
-    {
-      "name": "GPT 5.6 Luna (> 272K tokens)",
-      "inp": 0.4,
-      "out": 1.8,
+      "out": 0.66,
       "cacheR": 0.04,
-      "cacheW": 0.5,
-      "usage": 15
+      "cacheW": null,
+      "usage": 100
     },
     {
       "name": "GLM-5.3-Flash",
@@ -275,12 +251,36 @@
       "usage": 60
     },
     {
-      "name": "Omen Alpha",
-      "inp": 0.2,
-      "out": 0.66,
-      "cacheR": 0.04,
+      "name": "Grok 4.6 (≤ 200K tokens)",
+      "inp": 2,
+      "out": 6,
+      "cacheR": 0.5,
       "cacheW": null,
-      "usage": 100
+      "usage": 15
+    },
+    {
+      "name": "Grok 4.6 (> 200K tokens)",
+      "inp": 4,
+      "out": 12,
+      "cacheR": 1,
+      "cacheW": null,
+      "usage": 15
+    },
+    {
+      "name": "GPT 5.6 Luna (≤ 272K tokens)",
+      "inp": 0.2,
+      "out": 1.2,
+      "cacheR": 0.02,
+      "cacheW": 0.25,
+      "usage": 15
+    },
+    {
+      "name": "GPT 5.6 Luna (> 272K tokens)",
+      "inp": 0.4,
+      "out": 1.8,
+      "cacheR": 0.04,
+      "cacheW": 0.5,
+      "usage": 15
     }
   ]
 }
