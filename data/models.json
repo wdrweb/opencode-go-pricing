@@ -1,15 +1,7 @@
 {
   "source": "live",
-  "fetchedAt": "2026-09-10T00:52:09.361Z",
+  "fetchedAt": "2026-09-10T05:38:40.672Z",
   "models": [
-    {
-      "name": "Omen Alpha",
-      "inp": 0.2,
-      "out": 0.66,
-      "cacheR": 0.04,
-      "cacheW": null,
-      "usage": 100
-    },
     {
       "name": "GLM-5.3-Flash",
       "inp": 0.15,
@@ -187,6 +179,22 @@
       "usage": 60
     },
     {
+      "name": "DeepSeek V4.1 Flash (Off-Peak)",
+      "inp": 0.15,
+      "out": 0.6,
+      "cacheR": 0.003,
+      "cacheW": null,
+      "usage": 15
+    },
+    {
+      "name": "DeepSeek V4.1 Flash (Peak)",
+      "inp": 0.3,
+      "out": 1.2,
+      "cacheR": 0.006,
+      "cacheW": null,
+      "usage": 15
+    },
+    {
       "name": "DeepSeek V4 Pro (Off-Peak)",
       "inp": 0.66,
       "out": 1.98,
@@ -204,33 +212,33 @@
     },
     {
       "name": "DeepSeek V4 Flash (Off-Peak)",
-      "inp": 0.22,
-      "out": 0.66,
-      "cacheR": 0.007,
+      "inp": 0.15,
+      "out": 0.6,
+      "cacheR": 0.003,
       "cacheW": null,
       "usage": 30
     },
     {
       "name": "DeepSeek V4 Flash (Peak)",
-      "inp": 0.44,
-      "out": 1.32,
-      "cacheR": 0.014,
+      "inp": 0.3,
+      "out": 1.2,
+      "cacheR": 0.006,
       "cacheW": null,
       "usage": 30
     },
     {
       "name": "DeepSeek V4 Flash Vision Exp (Off-Peak)",
-      "inp": 0.22,
-      "out": 0.66,
-      "cacheR": 0.007,
+      "inp": 0.15,
+      "out": 0.6,
+      "cacheR": 0.003,
       "cacheW": null,
       "usage": 15
     },
     {
       "name": "DeepSeek V4 Flash Vision Exp (Peak)",
-      "inp": 0.44,
-      "out": 1.32,
-      "cacheR": 0.014,
+      "inp": 0.3,
+      "out": 1.2,
+      "cacheR": 0.006,
       "cacheW": null,
       "usage": 15
     },
