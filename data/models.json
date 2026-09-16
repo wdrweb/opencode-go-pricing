@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-09-16T12:43:16.069Z",
+  "fetchedAt": "2026-09-16T17:28:58.117Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -257,6 +257,14 @@
       "cacheR": 0.035,
       "cacheW": null,
       "usage": 60
+    },
+    {
+      "name": "Union Alpha Free",
+      "inp": null,
+      "out": null,
+      "cacheR": null,
+      "cacheW": null,
+      "usage": null
     },
     {
       "name": "Grok 4.6 (≤ 200K tokens)",
