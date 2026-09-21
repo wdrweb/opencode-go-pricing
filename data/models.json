@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-09-21T19:05:18.681Z",
+  "fetchedAt": "2026-09-21T22:43:16.786Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -67,7 +67,7 @@
       "usage": 60
     },
     {
-      "name": "MiMo V2.5",
+      "name": "MiMo-V2.6-Flash",
       "inp": 0.14,
       "out": 0.28,
       "cacheR": 0.0028,
@@ -75,7 +75,23 @@
       "usage": 60
     },
     {
-      "name": "MiMo V2.5 Pro",
+      "name": "MiMo-V2.6-Pro",
+      "inp": 0.435,
+      "out": 0.87,
+      "cacheR": 0.003625,
+      "cacheW": null,
+      "usage": 15
+    },
+    {
+      "name": "MiMo-V2.5",
+      "inp": 0.14,
+      "out": 0.28,
+      "cacheR": 0.0028,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "MiMo-V2.5-Pro",
       "inp": 0.435,
       "out": 0.87,
       "cacheR": 0.003625,
