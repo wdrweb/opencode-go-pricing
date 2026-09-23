@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-09-23T12:54:56.972Z",
+  "fetchedAt": "2026-09-23T17:43:35.431Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -273,6 +273,14 @@
       "cacheR": 0.035,
       "cacheW": null,
       "usage": 60
+    },
+    {
+      "name": "Space Bunny Free",
+      "inp": null,
+      "out": null,
+      "cacheR": null,
+      "cacheW": null,
+      "usage": null
     },
     {
       "name": "Grok 4.7 (≤ 200K tokens)",
