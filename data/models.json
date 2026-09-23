@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-09-23T17:43:35.431Z",
+  "fetchedAt": "2026-09-23T21:08:49.662Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -312,6 +312,22 @@
       "out": 12,
       "cacheR": 1,
       "cacheW": null,
+      "usage": 15
+    },
+    {
+      "name": "GPT 6 Luna (≤ 272K tokens)",
+      "inp": 0.1,
+      "out": 0.5,
+      "cacheR": 0.01,
+      "cacheW": 0.125,
+      "usage": 15
+    },
+    {
+      "name": "GPT 6 Luna (> 272K tokens)",
+      "inp": 0.2,
+      "out": 0.75,
+      "cacheR": 0.02,
+      "cacheW": 0.25,
       "usage": 15
     },
     {
