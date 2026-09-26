@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-09-26T11:41:37.856Z",
+  "fetchedAt": "2026-09-26T15:54:22.803Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -276,6 +276,14 @@
     },
     {
       "name": "Space Bunny Free",
+      "inp": null,
+      "out": null,
+      "cacheR": null,
+      "cacheW": null,
+      "usage": null
+    },
+    {
+      "name": "LongCat 2.5 Preview Free",
       "inp": null,
       "out": null,
       "cacheR": null,
