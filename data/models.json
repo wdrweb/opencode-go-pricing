@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-10-08T13:54:35.781Z",
+  "fetchedAt": "2026-10-08T19:40:29.411Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -60,6 +60,14 @@
     },
     {
       "name": "LongCat 2.5 Preview Free",
+      "inp": null,
+      "out": null,
+      "cacheR": null,
+      "cacheW": null,
+      "usage": null
+    },
+    {
+      "name": "Step 5 Preview Free",
       "inp": null,
       "out": null,
       "cacheR": null,
