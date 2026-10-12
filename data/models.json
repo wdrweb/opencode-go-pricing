@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-10-12T02:36:37.516Z",
+  "fetchedAt": "2026-10-12T10:17:49.081Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -176,7 +176,7 @@
       "out": 0.6,
       "cacheR": 0.003,
       "cacheW": null,
-      "usage": 60
+      "usage": 80
     },
     {
       "name": "DeepSeek V4.1 Flash (Peak)",
@@ -184,7 +184,7 @@
       "out": 1.2,
       "cacheR": 0.006,
       "cacheW": null,
-      "usage": 60
+      "usage": 80
     },
     {
       "name": "DeepSeek V4 Pro (Off-Peak)",
