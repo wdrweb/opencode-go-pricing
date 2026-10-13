@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-10-13T09:00:15.509Z",
+  "fetchedAt": "2026-10-13T17:03:43.787Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -68,6 +68,14 @@
     },
     {
       "name": "Step 5 Preview Free",
+      "inp": null,
+      "out": null,
+      "cacheR": null,
+      "cacheW": null,
+      "usage": null
+    },
+    {
+      "name": "Cat Jam Free",
       "inp": null,
       "out": null,
       "cacheR": null,
