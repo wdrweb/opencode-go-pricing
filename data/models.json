@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-10-14T05:51:59.966Z",
+  "fetchedAt": "2026-10-14T11:18:03.849Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -211,38 +211,6 @@
       "usage": 15
     },
     {
-      "name": "DeepSeek V4 Flash (Off-Peak)",
-      "inp": 0.15,
-      "out": 0.6,
-      "cacheR": 0.003,
-      "cacheW": null,
-      "usage": 30
-    },
-    {
-      "name": "DeepSeek V4 Flash (Peak)",
-      "inp": 0.3,
-      "out": 1.2,
-      "cacheR": 0.006,
-      "cacheW": null,
-      "usage": 30
-    },
-    {
-      "name": "DeepSeek V4 Flash Vision Exp (Off-Peak)",
-      "inp": 0.15,
-      "out": 0.6,
-      "cacheR": 0.003,
-      "cacheW": null,
-      "usage": 15
-    },
-    {
-      "name": "DeepSeek V4 Flash Vision Exp (Peak)",
-      "inp": 0.3,
-      "out": 1.2,
-      "cacheR": 0.006,
-      "cacheW": null,
-      "usage": 15
-    },
-    {
       "name": "Hy4 preview",
       "inp": 0.834,
       "out": 2.501,
@@ -345,6 +313,14 @@
       "cacheR": 0.05,
       "cacheW": 0.625,
       "usage": 15
+    },
+    {
+      "name": "Gemini 4 Argon Contributor",
+      "inp": 4,
+      "out": 20,
+      "cacheR": 0.2,
+      "cacheW": null,
+      "usage": 30
     }
   ]
 }
