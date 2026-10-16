@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-10-16T08:24:55.773Z",
+  "fetchedAt": "2026-10-16T13:26:03.884Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -39,14 +39,6 @@
       "inp": 0.95,
       "out": 4,
       "cacheR": 0.19,
-      "cacheW": null,
-      "usage": 60
-    },
-    {
-      "name": "Kimi K2.6",
-      "inp": 0.95,
-      "out": 4,
-      "cacheR": 0.16,
       "cacheW": null,
       "usage": 60
     },
@@ -120,14 +112,6 @@
       "out": 1.2,
       "cacheR": 0.06,
       "cacheW": null,
-      "usage": 60
-    },
-    {
-      "name": "MiniMax M2.7",
-      "inp": 0.3,
-      "out": 1.2,
-      "cacheR": 0.06,
-      "cacheW": 0.375,
       "usage": 60
     },
     {
@@ -244,22 +228,6 @@
     },
     {
       "name": "Grok 4.7 (> 200K tokens)",
-      "inp": 4,
-      "out": 12,
-      "cacheR": 1,
-      "cacheW": null,
-      "usage": 15
-    },
-    {
-      "name": "Grok 4.6 (≤ 200K tokens)",
-      "inp": 2,
-      "out": 6,
-      "cacheR": 0.5,
-      "cacheW": null,
-      "usage": 15
-    },
-    {
-      "name": "Grok 4.6 (> 200K tokens)",
       "inp": 4,
       "out": 12,
       "cacheR": 1,
