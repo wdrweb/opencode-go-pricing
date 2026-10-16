@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-10-16T13:26:03.884Z",
+  "fetchedAt": "2026-10-16T17:37:24.229Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -67,7 +67,7 @@
       "usage": 15
     },
     {
-      "name": "Cat Jam Free",
+      "name": "Beam Free",
       "inp": null,
       "out": null,
       "cacheR": null,
