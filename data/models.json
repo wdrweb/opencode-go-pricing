@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-10-22T10:26:04.922Z",
+  "fetchedAt": "2026-10-22T15:29:27.936Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -107,12 +107,12 @@
       "usage": 15
     },
     {
-      "name": "MiniMax M3.1 Flash Free",
-      "inp": null,
-      "out": null,
-      "cacheR": null,
+      "name": "MiniMax M3.1 Flash",
+      "inp": 0.15,
+      "out": 0.6,
+      "cacheR": 0.015,
       "cacheW": null,
-      "usage": null
+      "usage": 20
     },
     {
       "name": "MiniMax M3",
