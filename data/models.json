@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-10-23T16:37:59.206Z",
+  "fetchedAt": "2026-10-23T20:12:26.350Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -27,11 +27,19 @@
       "usage": 60
     },
     {
+      "name": "Kimi K3.1 Pro",
+      "inp": 2,
+      "out": 10,
+      "cacheR": 0.2,
+      "cacheW": 2,
+      "usage": 15
+    },
+    {
       "name": "Kimi K3",
       "inp": 3,
       "out": 15,
       "cacheR": 0.3,
-      "cacheW": null,
+      "cacheW": 3,
       "usage": 15
     },
     {
