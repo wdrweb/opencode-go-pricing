@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-10-24T11:51:35.633Z",
+  "fetchedAt": "2026-10-24T15:27:04.291Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -291,7 +291,7 @@
       "usage": 15
     },
     {
-      "name": "Gemini 4 Argon Contributor",
+      "name": "Gemini 4 Argon (50% off)",
       "inp": 4,
       "out": 20,
       "cacheR": 0.2,
