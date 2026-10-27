@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-10-27T02:18:13.300Z",
+  "fetchedAt": "2026-10-27T08:13:09.565Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -68,6 +68,14 @@
     },
     {
       "name": "Beam Free",
+      "inp": null,
+      "out": null,
+      "cacheR": null,
+      "cacheW": null,
+      "usage": null
+    },
+    {
+      "name": "Iceman Contributor Free",
       "inp": null,
       "out": null,
       "cacheR": null,
