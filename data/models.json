@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-10-29T01:34:19.845Z",
+  "fetchedAt": "2026-10-29T08:05:00.246Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -123,10 +123,18 @@
       "usage": 20
     },
     {
-      "name": "MiniMax M3",
+      "name": "MiniMax M3 (≤ 512K tokens)",
       "inp": 0.3,
       "out": 1.2,
       "cacheR": 0.06,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "MiniMax M3 (> 512K tokens)",
+      "inp": 0.6,
+      "out": 2.4,
+      "cacheR": 0.12,
       "cacheW": null,
       "usage": 60
     },
