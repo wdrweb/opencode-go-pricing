@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-11-04T21:24:40.513Z",
+  "fetchedAt": "2026-11-05T01:40:06.137Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -217,6 +217,14 @@
       "cacheR": 0.044,
       "cacheW": null,
       "usage": 15
+    },
+    {
+      "name": "Hy4",
+      "inp": 0.834,
+      "out": 2.501,
+      "cacheR": 0.042,
+      "cacheW": null,
+      "usage": 60
     },
     {
       "name": "Hy4 preview",
