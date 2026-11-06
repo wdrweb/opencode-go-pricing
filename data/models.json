@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-11-06T11:20:11.297Z",
+  "fetchedAt": "2026-11-06T18:14:32.158Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -65,6 +65,14 @@
       "cacheR": 0.1,
       "cacheW": null,
       "usage": 15
+    },
+    {
+      "name": "Crouton Alpha Free",
+      "inp": null,
+      "out": null,
+      "cacheR": null,
+      "cacheW": null,
+      "usage": null
     },
     {
       "name": "Beam Free",
