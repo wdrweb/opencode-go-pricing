@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-11-09T10:05:40.309Z",
+  "fetchedAt": "2026-11-09T20:57:11.406Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -84,6 +84,14 @@
     },
     {
       "name": "Iceman Contributor Free",
+      "inp": null,
+      "out": null,
+      "cacheR": null,
+      "cacheW": null,
+      "usage": null
+    },
+    {
+      "name": "LongCat 2.5 Free",
       "inp": null,
       "out": null,
       "cacheR": null,
