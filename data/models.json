@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-11-16T07:03:26.303Z",
+  "fetchedAt": "2026-11-16T17:17:28.661Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -84,6 +84,14 @@
     },
     {
       "name": "LongCat 2.5 Free",
+      "inp": null,
+      "out": null,
+      "cacheR": null,
+      "cacheW": null,
+      "usage": null
+    },
+    {
+      "name": "Hy4 flash Free",
       "inp": null,
       "out": null,
       "cacheR": null,
