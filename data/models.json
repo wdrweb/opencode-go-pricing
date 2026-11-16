@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-11-16T00:10:42.352Z",
+  "fetchedAt": "2026-11-16T07:03:26.303Z",
   "models": [
     {
       "name": "GLM-5.3-Flash",
@@ -161,6 +161,14 @@
       "cacheR": 0.002,
       "cacheW": null,
       "usage": 60
+    },
+    {
+      "name": "Qwen4 Max",
+      "inp": 1.5,
+      "out": 4.5,
+      "cacheR": 0.075,
+      "cacheW": 1.875,
+      "usage": 15
     },
     {
       "name": "Qwen3.8 Max",
