@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * tools/update-snapshot.mjs — regenerate data/models.json from the live
- * opencode.ai/docs/go page. No dependencies (Node 18+ global fetch).
+ * opencode.ai Go models endpoint. No dependencies (Node 18+ global fetch).
  *
  *   node tools/update-snapshot.mjs       # writes data/models.json
  *
@@ -18,17 +18,16 @@ import core from "../pricing-core.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = join(root, "data", "models.json");
-const UPSTREAM = "https://opencode.ai/docs/go";
+const UPSTREAM = "https://opencode.ai/inference/go/v1/models";
 
 const res = await fetch(UPSTREAM, {
 	headers: { "user-agent": "Mozilla/5.0" },
 	signal: AbortSignal.timeout(15000)
 });
 if (!res.ok) throw new Error("upstream http " + res.status);
-const html = await res.text();
 
-const models = core.parsePricing(html);
-if (!models || !models.length) throw new Error("pricing table not found");
+const models = core.parsePricing(await res.text());
+if (!models || !models.length) throw new Error("models endpoint payload not recognised");
 
 const payload = {
 	source: "live",

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Model Pricing &amp; Value</title>
-	<meta name="description" content="OpenCode Go model pricing and value — live data from opencode.ai/docs/go with an embedded snapshot fallback.">
+	<meta name="description" content="OpenCode Go model pricing and value — live data from the Go models endpoint with an embedded snapshot fallback.">
 	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
 					<span class="pill-dot" aria-hidden="true"></span>
 					<span id="srcText">Loading live prices&hellip;</span>
 				</span>
-				<button id="refreshBtn" class="btn" type="button" title="Re-fetch live prices from opencode.ai/docs/go">&#x21BB; Refresh</button>
+				<button id="refreshBtn" class="btn" type="button" title="Re-fetch live prices from the Go models endpoint">&#x21BB; Refresh</button>
 				<button id="themeBtn" class="btn" type="button" title="Toggle light / dark theme">Theme</button>
 			</div>
 		</header>
@@ -31,8 +31,10 @@
 				<select id="filterSelect">
 					<option value="all">All</option>
 					<option value="15">$15/mo</option>
+					<option value="20">$20/mo</option>
 					<option value="30">$30/mo</option>
 					<option value="60">$60/mo</option>
+					<option value="100">$100/mo</option>
 					<option value="free">Free</option>
 				</select>
 			</div>

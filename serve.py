@@ -1,17 +1,14 @@
 #!/usr/bin/env python3
 """serve.py — same-origin proxy + static server for Model Pricing & Value.
 
-Browsers block the page's direct fetch to https://opencode.ai/docs/go because
-that origin sends no Access-Control-Allow-Origin header (this is why the live
-fetch fails when you serve index.html with a plain static server or file://).
-This tiny, dependency-free server fixes it by fetching the page server-side
-(where CORS does not apply) and re-exposing it on the same origin:
+Serves this folder and re-exposes the upstream Go models endpoint on the same
+origin, so the page also works from file:// or a plain static server:
 
-    GET /api/mdlc-pricing  -> the upstream pricing page HTML (10-minute cache)
+    GET /api/mdlc-pricing  -> the upstream models JSON (10-minute cache)
                             or JSON {"source":"snapshot","reason":...} on failure
 
-The page's app.js already knows how to parse that HTML into models, and it
-also still accepts the JSON shape that the DSH Web plugin endpoint returns.
+The payload passes through untouched: app.js maps it with the same
+pricing-core.js parser the refresh script uses.
 
 Usage:
     python3 serve.py [port]          # default port 8097, serves this folder
@@ -27,24 +24,24 @@ from urllib.error import URLError
 from urllib.request import Request, urlopen
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-UPSTREAM = "https://opencode.ai/docs/go"
+UPSTREAM = "https://opencode.ai/inference/go/v1/models"
 UPSTREAM_TIMEOUT = 15
 CACHE_SECONDS = 600  # 10 minutes, same as the plugin's server half
 
-_cache = None  # (at: float, html: str)
+_cache = None  # (at: float, body: str)
 
 
-def fetch_upstream_html():
-    """Fetch the pricing page with a short cache; raises on failure."""
+def fetch_upstream_json():
+    """Fetch the models payload with a short cache; raises on failure."""
     global _cache
     now = time.time()
     if _cache and now - _cache[0] < CACHE_SECONDS:
         return _cache[1]
     req = Request(UPSTREAM, headers={"User-Agent": "Mozilla/5.0"})
     with urlopen(req, timeout=UPSTREAM_TIMEOUT) as res:
-        html = res.read().decode("utf-8", "replace")
-    _cache = (now, html)
-    return html
+        body = res.read().decode("utf-8", "replace")
+    _cache = (now, body)
+    return body
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -59,10 +56,9 @@ class Handler(SimpleHTTPRequestHandler):
 
     def _pricing(self):
         try:
-            html = fetch_upstream_html()
-            body = html.encode("utf-8")
+            body = fetch_upstream_json().encode("utf-8")
             self.send_response(200)
-            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(body)))
             self.send_header("Cache-Control", "no-cache")
             self.end_headers()

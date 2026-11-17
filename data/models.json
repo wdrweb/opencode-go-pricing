@@ -1,217 +1,9 @@
 {
   "source": "live",
-  "fetchedAt": "2026-11-17T00:57:10.788Z",
+  "fetchedAt": "2026-11-17T09:05:12.410Z",
   "models": [
     {
-      "name": "GLM-5.3-Flash",
-      "inp": 0.15,
-      "out": 0.5,
-      "cacheR": 0.03,
-      "cacheW": null,
-      "usage": 60
-    },
-    {
-      "name": "GLM-5.3",
-      "inp": 1.4,
-      "out": 4.4,
-      "cacheR": 0.26,
-      "cacheW": null,
-      "usage": 15
-    },
-    {
-      "name": "GLM-5.2",
-      "inp": 1.4,
-      "out": 4.4,
-      "cacheR": 0.26,
-      "cacheW": null,
-      "usage": 60
-    },
-    {
-      "name": "Kimi K3.1 Pro",
-      "inp": 2,
-      "out": 10,
-      "cacheR": 0.2,
-      "cacheW": 2,
-      "usage": 15
-    },
-    {
-      "name": "Kimi K3",
-      "inp": 3,
-      "out": 15,
-      "cacheR": 0.3,
-      "cacheW": 3,
-      "usage": 15
-    },
-    {
-      "name": "Kimi K2.7 Code",
-      "inp": 0.95,
-      "out": 4,
-      "cacheR": 0.19,
-      "cacheW": null,
-      "usage": 60
-    },
-    {
-      "name": "LongCat-2.0",
-      "inp": 0.3,
-      "out": 1.2,
-      "cacheR": 0.006,
-      "cacheW": null,
-      "usage": 60
-    },
-    {
-      "name": "Step 5 Preview",
-      "inp": 1,
-      "out": 2.7,
-      "cacheR": 0.1,
-      "cacheW": null,
-      "usage": 15
-    },
-    {
-      "name": "Beam Free",
-      "inp": null,
-      "out": null,
-      "cacheR": null,
-      "cacheW": null,
-      "usage": null
-    },
-    {
-      "name": "Iceman Contributor Free",
-      "inp": null,
-      "out": null,
-      "cacheR": null,
-      "cacheW": null,
-      "usage": null
-    },
-    {
-      "name": "LongCat 2.5 Free",
-      "inp": null,
-      "out": null,
-      "cacheR": null,
-      "cacheW": null,
-      "usage": null
-    },
-    {
-      "name": "Hy4 flash Free",
-      "inp": null,
-      "out": null,
-      "cacheR": null,
-      "cacheW": null,
-      "usage": null
-    },
-    {
-      "name": "MiMo-V2.6-Flash",
-      "inp": 0.14,
-      "out": 0.28,
-      "cacheR": 0.0028,
-      "cacheW": null,
-      "usage": 60
-    },
-    {
-      "name": "MiMo-V2.6-Pro",
-      "inp": 0.435,
-      "out": 0.87,
-      "cacheR": 0.003625,
-      "cacheW": null,
-      "usage": 15
-    },
-    {
-      "name": "MiMo-V2.5",
-      "inp": 0.14,
-      "out": 0.28,
-      "cacheR": 0.0028,
-      "cacheW": null,
-      "usage": 60
-    },
-    {
-      "name": "MiMo-V2.5-Pro",
-      "inp": 0.435,
-      "out": 0.87,
-      "cacheR": 0.003625,
-      "cacheW": null,
-      "usage": 15
-    },
-    {
-      "name": "MiniMax M3.1 Flash",
-      "inp": 0.15,
-      "out": 0.6,
-      "cacheR": 0.015,
-      "cacheW": null,
-      "usage": 20
-    },
-    {
-      "name": "MiniMax M3 (≤ 512K tokens)",
-      "inp": 0.3,
-      "out": 1.2,
-      "cacheR": 0.06,
-      "cacheW": null,
-      "usage": 60
-    },
-    {
-      "name": "MiniMax M3 (> 512K tokens)",
-      "inp": 0.6,
-      "out": 2.4,
-      "cacheR": 0.12,
-      "cacheW": null,
-      "usage": 60
-    },
-    {
-      "name": "Muse Spark 1.3 Contributor",
-      "inp": 0.1,
-      "out": 0.2,
-      "cacheR": 0.002,
-      "cacheW": null,
-      "usage": 60
-    },
-    {
-      "name": "Muse Spark 1.2 Contributor",
-      "inp": 0.1,
-      "out": 0.2,
-      "cacheR": 0.002,
-      "cacheW": null,
-      "usage": 60
-    },
-    {
-      "name": "Qwen4 Max",
-      "inp": 1.5,
-      "out": 4.5,
-      "cacheR": 0.075,
-      "cacheW": 1.875,
-      "usage": 15
-    },
-    {
-      "name": "Qwen3.8 Max",
-      "inp": 2,
-      "out": 6,
-      "cacheR": 0.25,
-      "cacheW": 2.5,
-      "usage": 15
-    },
-    {
-      "name": "Qwen3.8 Flash",
-      "inp": 0.15,
-      "out": 0.47,
-      "cacheR": 0.016,
-      "cacheW": 0.2,
-      "usage": 30
-    },
-    {
-      "name": "Qwen3.7 Plus (≤ 256K tokens)",
-      "inp": 0.4,
-      "out": 1.6,
-      "cacheR": 0.04,
-      "cacheW": 0.5,
-      "usage": 60
-    },
-    {
-      "name": "Qwen3.7 Plus (> 256K tokens)",
-      "inp": 1.2,
-      "out": 4.8,
-      "cacheR": 0.12,
-      "cacheW": 1.5,
-      "usage": 60
-    },
-    {
-      "name": "DeepSeek V4.1 Flash (Off-Peak)",
+      "name": "DeepSeek V4.1 Flash 1017 (Off-Peak)",
       "inp": 0.15,
       "out": 0.6,
       "cacheR": 0.003,
@@ -219,7 +11,7 @@
       "usage": 100
     },
     {
-      "name": "DeepSeek V4.1 Flash (Peak)",
+      "name": "DeepSeek V4.1 Flash 1017 (Peak)",
       "inp": 0.3,
       "out": 1.2,
       "cacheR": 0.006,
@@ -243,10 +35,82 @@
       "usage": 15
     },
     {
-      "name": "Hy4",
-      "inp": 0.834,
-      "out": 2.501,
-      "cacheR": 0.042,
+      "name": "GLM-5.2",
+      "inp": 1.4,
+      "out": 4.4,
+      "cacheR": 0.26,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "GLM-5.3",
+      "inp": 1.4,
+      "out": 4.4,
+      "cacheR": 0.26,
+      "cacheW": null,
+      "usage": 100
+    },
+    {
+      "name": "Grok 4.7",
+      "inp": 2,
+      "out": 6,
+      "cacheR": 0.5,
+      "cacheW": null,
+      "usage": 15
+    },
+    {
+      "name": "Muse Spark 1.2 Contributor",
+      "inp": 0.1,
+      "out": 0.2,
+      "cacheR": 0.002,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "Muse Spark 1.3 Contributor",
+      "inp": 0.1,
+      "out": 0.2,
+      "cacheR": 0.002,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "GLM-5.3-Flash",
+      "inp": 0.15,
+      "out": 0.5,
+      "cacheR": 0.03,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "GPT-5.6 Luna",
+      "inp": 0.2,
+      "out": 1.2,
+      "cacheR": 0.02,
+      "cacheW": 0.25,
+      "usage": 15
+    },
+    {
+      "name": "GPT-6 Luna",
+      "inp": 0.1,
+      "out": 0.5,
+      "cacheR": 0.01,
+      "cacheW": 0.125,
+      "usage": 15
+    },
+    {
+      "name": "Claude Haiku 5.5",
+      "inp": 0.1,
+      "out": 0.5,
+      "cacheR": 0.01,
+      "cacheW": 0.125,
+      "usage": 15
+    },
+    {
+      "name": "Hy3",
+      "inp": 0.14,
+      "out": 0.58,
+      "cacheR": 0.035,
       "cacheW": null,
       "usage": 60
     },
@@ -259,84 +123,156 @@
       "usage": 30
     },
     {
-      "name": "Hy3",
-      "inp": 0.14,
-      "out": 0.58,
-      "cacheR": 0.035,
+      "name": "Kimi K2.7 Code",
+      "inp": 0.95,
+      "out": 4,
+      "cacheR": 0.19,
       "cacheW": null,
       "usage": 60
     },
     {
-      "name": "Grok 4.7 (≤ 200K tokens)",
+      "name": "Kimi K3",
+      "inp": 3,
+      "out": 15,
+      "cacheR": 0.3,
+      "cacheW": 3,
+      "usage": 15
+    },
+    {
+      "name": "MiMo-V2.6-Flash",
+      "inp": 0.14,
+      "out": 0.28,
+      "cacheR": 0.0028,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "MiMo-V2.6-Pro",
+      "inp": 0.435,
+      "out": 0.87,
+      "cacheR": 0.003625,
+      "cacheW": null,
+      "usage": 15
+    },
+    {
+      "name": "MiniMax-M3",
+      "inp": 0.3,
+      "out": 1.2,
+      "cacheR": 0.06,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "MiniMax M3.1 Flash",
+      "inp": 0.15,
+      "out": 0.6,
+      "cacheR": 0.015,
+      "cacheW": null,
+      "usage": 20
+    },
+    {
+      "name": "LongCat-2.0",
+      "inp": 0.3,
+      "out": 1.2,
+      "cacheR": 0.006,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "Step 5 Preview",
+      "inp": 1,
+      "out": 2.7,
+      "cacheR": 0.1,
+      "cacheW": null,
+      "usage": 15
+    },
+    {
+      "name": "Beam Free",
+      "inp": 0,
+      "out": 0,
+      "cacheR": 0,
+      "cacheW": null,
+      "usage": null
+    },
+    {
+      "name": "Qwen3.8 Max",
       "inp": 2,
       "out": 6,
-      "cacheR": 0.5,
-      "cacheW": null,
+      "cacheR": 0.25,
+      "cacheW": 2.5,
       "usage": 15
     },
     {
-      "name": "Grok 4.7 (> 200K tokens)",
-      "inp": 4,
-      "out": 12,
-      "cacheR": 1,
-      "cacheW": null,
-      "usage": 15
+      "name": "Qwen3.8 Flash",
+      "inp": 0.15,
+      "out": 0.47,
+      "cacheR": 0.016,
+      "cacheW": 0.2,
+      "usage": 30
     },
     {
-      "name": "GPT 6 Luna (≤ 272K tokens)",
-      "inp": 0.1,
-      "out": 0.5,
-      "cacheR": 0.01,
-      "cacheW": 0.125,
-      "usage": 15
-    },
-    {
-      "name": "GPT 6 Luna (> 272K tokens)",
-      "inp": 0.2,
-      "out": 0.75,
-      "cacheR": 0.02,
-      "cacheW": 0.25,
-      "usage": 15
-    },
-    {
-      "name": "GPT 5.6 Luna (≤ 272K tokens)",
-      "inp": 0.2,
-      "out": 1.2,
-      "cacheR": 0.02,
-      "cacheW": 0.25,
-      "usage": 15
-    },
-    {
-      "name": "GPT 5.6 Luna (> 272K tokens)",
+      "name": "Qwen3.7 Plus",
       "inp": 0.4,
-      "out": 1.8,
+      "out": 1.6,
       "cacheR": 0.04,
       "cacheW": 0.5,
-      "usage": 15
+      "usage": 60
     },
     {
-      "name": "Claude Haiku 5.5 (≤ 100K tokens)",
-      "inp": 0.1,
-      "out": 0.5,
-      "cacheR": 0.01,
-      "cacheW": 0.125,
-      "usage": 15
-    },
-    {
-      "name": "Claude Haiku 5.5 (> 100K tokens)",
-      "inp": 0.5,
-      "out": 2.5,
-      "cacheR": 0.05,
-      "cacheW": 0.625,
-      "usage": 15
-    },
-    {
-      "name": "Gemini 4 Argon (50% off)",
-      "inp": 4,
-      "out": 20,
+      "name": "Kimi K3.1 Pro",
+      "inp": 2,
+      "out": 10,
       "cacheR": 0.2,
+      "cacheW": 2,
+      "usage": 15
+    },
+    {
+      "name": "Iceman Contributor Free",
+      "inp": 0,
+      "out": 0,
+      "cacheR": 0,
+      "cacheW": null,
+      "usage": null
+    },
+    {
+      "name": "Gemini 4 Argon",
+      "inp": 2,
+      "out": 10,
+      "cacheR": 0.1,
       "cacheW": null,
       "usage": 30
+    },
+    {
+      "name": "Hy4",
+      "inp": 0.834,
+      "out": 2.501,
+      "cacheR": 0.042,
+      "cacheW": null,
+      "usage": 60
+    },
+    {
+      "name": "LongCat 2.5 Free",
+      "inp": 0,
+      "out": 0,
+      "cacheR": 0,
+      "cacheW": null,
+      "usage": null
+    },
+    {
+      "name": "Hy4 flash Free",
+      "inp": 0,
+      "out": 0,
+      "cacheR": 0,
+      "cacheW": null,
+      "usage": null
+    },
+    {
+      "name": "Qwen4 Max",
+      "inp": 1.5,
+      "out": 4.5,
+      "cacheR": 0.075,
+      "cacheW": 1.875,
+      "usage": 15
     }
   ]
 }

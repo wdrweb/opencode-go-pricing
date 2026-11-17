@@ -1,8 +1,7 @@
 /* pricing-core.js — shared pure helpers for the Model Pricing & Value page.
 
-   The upstream opencode.ai/docs/go page is HTML, and the tiny table parser
-   that extracts the pricing rows must live in exactly ONE place because it is
-   used by two runtimes:
+   Upstream is the Go models endpoint (JSON), and the mapper that turns it into
+   table rows must live in exactly ONE place because it is used by two runtimes:
 
      - browser: index.html loads this file BEFORE app.js; it exposes
        window.PricingCore
@@ -44,85 +43,82 @@
 		return s == null ? "—" : s + "M";
 	}
 
-	/* ---- upstream table parser (ported from the plugin's lib/index.js) ---- */
-	function stripTags(s) {
-		return s.replace(/<[^>]*>/g, " ");
+	/* ---- upstream models-endpoint mapper ---- */
+
+	function num(v) {
+		return typeof v === "number" && isFinite(v) ? v : null;
 	}
 
-	function decode(s) {
-		return s
-			.replace(/&amp;/g, "&")
-			.replace(/&lt;/g, "<")
-			.replace(/&gt;/g, ">")
-			.replace(/&quot;/g, "\"")
-			.replace(/&#39;/g, "'")
-			.replace(/&#x27;/g, "'")
-			.replace(/&nbsp;/g, " ");
-	}
-
-	function toNum(s) {
-		const t = String(s).replace(/<[^>]*>/g, "").trim();
-		if (t === "" || t === "-") return null;
-		const n = parseFloat(t.replace(/[\$,]/g, ""));
-		return isNaN(n) ? null : n;
-	}
-
-	function rowCells(rowHtml) {
-		const out = [];
-		let idx = 0;
-		while (idx < rowHtml.length) {
-			const td = rowHtml.indexOf("<td", idx);
-			const th = rowHtml.indexOf("<th", idx);
-			let open;
-			if (td === -1) open = th;
-			else if (th === -1) open = td;
-			else open = Math.min(td, th);
-			if (open === -1) break;
-			const gt = rowHtml.indexOf(">", open);
-			if (gt === -1) break;
-			const isTh = rowHtml.charAt(open + 1) === "t" && rowHtml.charAt(open + 2) === "h";
-			const closeTag = isTh ? "</th>" : "</td>";
-			const close = rowHtml.indexOf(closeTag, gt);
-			if (close === -1) { idx = gt + 1; continue; }
-			out.push(decode(stripTags(rowHtml.slice(gt + 1, close))));
-			idx = close + closeTag.length;
+	/* Cache write is either a flat price or TTL tiers ({ "30m": 0.25, ... }).
+	   The column renders one number, so use the cheapest tier. */
+	function cacheWritePrice(cw) {
+		if (cw == null) return null;
+		if (typeof cw === "number") return num(cw);
+		let best = null;
+		for (const k in cw) {
+			const v = num(cw[k]);
+			if (v != null && (best == null || v < best)) best = v;
 		}
-		return out;
+		return best;
 	}
 
-	function parsePricing(html) {
-		const headerPos = html.indexOf(">Cached Read<");
-		if (headerPos === -1) return null;
-		const tableStart = html.lastIndexOf("<table", headerPos);
-		if (tableStart === -1) return null;
-		const tableEnd = html.indexOf("</table>", headerPos);
-		if (tableEnd === -1) return null;
-		const table = html.slice(tableStart, tableEnd);
-		const tbodyStart = table.indexOf("<tbody");
-		const tbodyEnd = table.indexOf("</tbody>");
-		const body = (tbodyStart !== -1 && tbodyEnd !== -1) ? table.slice(tbodyStart, tbodyEnd) : table;
+	/* Clock-window multiplier (weekday peak hours) → its surcharge factor.
+	   Date-based multipliers are scheduled price changes, not a daily peak,
+	   so they stay out of the table. */
+	function peakFactor(m) {
+		const ms = (m.cost && m.cost.multipliers) || [];
+		let factor = null;
+		for (const mult of ms) {
+			if (!mult.when || !mult.when.any) continue;
+			const f = num(mult.factor);
+			if (f != null && f > 1 && (factor == null || f > factor)) factor = f;
+		}
+		return factor;
+	}
+
+	function scaled(v, f) {
+		return v == null ? null : Math.round(v * f * 1e6) / 1e6;
+	}
+
+	/* Accepts the endpoint's JSON (string or already parsed). Returns the rows
+	   the page renders, or null when the payload is not the models list. */
+	function parsePricing(input) {
+		let d = input;
+		if (typeof d === "string") {
+			try { d = JSON.parse(d); } catch (e) { return null; }
+		}
+		if (!d || !Array.isArray(d.data)) return null;
 		const models = [];
-		let idx = 0;
-		while (idx < body.length) {
-			const tr = body.indexOf("<tr", idx);
-			if (tr === -1) break;
-			const trEnd = body.indexOf("</tr>", tr);
-			if (trEnd === -1) break;
-			const cells = rowCells(body.slice(tr, trEnd));
-			if (cells.length >= 6) {
-				const modelName = cells[0].trim();
-				if (modelName && modelName !== "Model") {
-					models.push({
-						name: modelName,
-						inp: toNum(cells[1]),
-						out: toNum(cells[2]),
-						cacheR: toNum(cells[3]),
-						cacheW: toNum(cells[4]),
-						usage: toNum(cells[5])
-					});
-				}
+		for (const m of d.data) {
+			const cost = (m.cost && m.cost.text) || {};
+			const inp = cost.input || {};
+			const cache = inp.cache || {};
+			const usage = m.go && m.go.monthly_usage;
+			const row = {
+				name: m.name || m.id,
+				inp: num(inp.price),
+				out: num((cost.output || {}).price),
+				cacheR: num(cache.read),
+				cacheW: cacheWritePrice(cache.write),
+				usage: usage ? num(usage.go) : null
+			};
+			const f = peakFactor(m);
+			if (f == null) {
+				models.push(row);
+				continue;
 			}
-			idx = trEnd + 5;
+			/* Base price is the off-peak one; peak is base × factor. Two rows
+			   keep the columns comparable, as the old price table did. */
+			row.name += " (Off-Peak)";
+			models.push(row);
+			models.push({
+				name: (m.name || m.id) + " (Peak)",
+				inp: scaled(row.inp, f),
+				out: scaled(row.out, f),
+				cacheR: scaled(row.cacheR, f),
+				cacheW: scaled(row.cacheW, f),
+				usage: row.usage
+			});
 		}
 		return models.length ? models : null;
 	}

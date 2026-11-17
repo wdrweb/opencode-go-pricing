@@ -7,11 +7,10 @@
      works fully offline.
    - On load (and on Refresh) it tries live data, in order:
        1. the same-origin /api/mdlc-pricing endpoint (serve.py local proxy,
-          or the DSH Web plugin's endpoint) — JSON or HTML
+          or the DSH Web plugin's endpoint)
        2. a committed data/models.json (same-origin, no CORS — the static
           host path; regenerate with node tools/update-snapshot.mjs)
-       3. https://opencode.ai/docs/go directly (only works if that origin
-          sends CORS headers — it does not today)
+       3. the Go models endpoint directly (it sends CORS headers)
      Any failure falls back to the snapshot and the status pill explains why,
      with a hint tailored to local vs remote hosting — same resilience as
      the plugin.
@@ -83,20 +82,19 @@ const COLS = [
 	{ key: "value", label: "Value" }
 ];
 
-const FILTER_LABELS = { all: "All", 15: "$15/mo", 30: "$30/mo", 60: "$60/mo", free: "Free" };
+const FILTER_LABELS = { all: "All", 15: "$15/mo", 20: "$20/mo", 30: "$30/mo", 60: "$60/mo", 100: "$100/mo", free: "Free" };
 
 /* ------------------------------------------------------------------ *
  * Live data fetching
  *
- * Browsers block a direct cross-origin fetch to opencode.ai/docs/go
- * (no Access-Control-Allow-Origin header), so the reliable live paths are
- * same-origin:
- *   1. /api/mdlc-pricing       — serve.py local proxy (HTML) or the DSH Web
- *                                plugin's endpoint (JSON)
- *   2. ./data/models.json      — committed refresh of the upstream table;
+ * Upstream is the Go models endpoint (JSON, and it sends
+ * Access-Control-Allow-Origin: *). Paths, in order:
+ *   1. /api/mdlc-pricing       — serve.py local proxy (JSON) or the DSH Web
+ *                                plugin's endpoint (same rows)
+ *   2. ./data/models.json      — committed refresh of the endpoint;
  *                                the static-host path (GitHub Pages etc.),
  *                                regenerated with node tools/update-snapshot.mjs
- *   3. https://opencode.ai/docs/go direct — only if CORS is ever granted
+ *   3. the endpoint direct     — allowed by CORS, so this normally works too
  * Any failure falls back to the embedded snapshot and the status pill
  * explains why, with a hint tailored to local vs remote hosting.
  * ------------------------------------------------------------------ */
@@ -110,34 +108,29 @@ function isLocalHost() {
 function liveHint() {
 	return isLocalHost()
 		? "run \"python3 serve.py\" for live data"
-		: "static hosts can't reach opencode.ai (browser CORS) — run \"node tools/update-snapshot.mjs\" and redeploy to refresh data";
+		: "run \"node tools/update-snapshot.mjs\" and redeploy to refresh data";
 }
 
 async function fetchLive() {
 	const sameOrigin = location.protocol === "http:" || location.protocol === "https:";
 
-	// 1) Same-origin /api/mdlc-pricing — JSON (DSH plugin) or HTML (serve.py).
+	// 1) Same-origin /api/mdlc-pricing — JSON rows (DSH plugin) or the raw
+	//    endpoint payload (serve.py proxy); parsePricing handles the latter.
 	if (sameOrigin) {
 		try {
 			const r = await fetch("/api/mdlc-pricing", { cache: "no-store" });
-			const ct = (r.headers && typeof r.headers.get === "function")
-				? (r.headers.get("content-type") || "") : "";
 			const text = await r.text();
-			if (ct.indexOf("json") !== -1) {
-				let j = null;
-				try { j = JSON.parse(text); } catch (e) { j = null; }
-				if (j && j.source === "live" && Array.isArray(j.models) && j.models.length) {
-					return { models: j.models, fetchedAt: j.fetchedAt || null, via: "/api/mdlc-pricing" };
-				}
-				// A JSON snapshot carries the server's own reason (upstream
-				// down etc.) — trust it; the browser cannot do better.
-				if (j && j.reason) throw new LiveUnavailable(String(j.reason));
-			} else {
-				const models = parsePricing(text);
-				if (models && models.length) {
-					return { models, fetchedAt: new Date().toISOString(), via: "/api/mdlc-pricing" };
-				}
+			let j = null;
+			try { j = JSON.parse(text); } catch (e) { j = null; }
+			const models = (j && Array.isArray(j.models) && j.models.length)
+				? j.models
+				: parsePricing(j || text);
+			if (models && models.length) {
+				return { models, fetchedAt: (j && j.fetchedAt) || new Date().toISOString(), via: "/api/mdlc-pricing" };
 			}
+			// A failure snapshot carries the server's own reason (upstream
+			// down etc.) — trust it; the browser cannot do better.
+			if (j && j.reason) throw new LiveUnavailable(String(j.reason));
 		} catch (e) {
 			if (e instanceof LiveUnavailable) throw e;
 			// no usable endpoint here (plain static server) — try the next source
@@ -155,17 +148,14 @@ async function fetchLive() {
 		}
 	} catch (e) { /* no committed data — continue */ }
 
-	// 3) Direct upstream (only works if opencode.ai ever sends CORS headers;
-	//    today it does not, so this normally fails in a browser).
+	// 3) Direct upstream — the endpoint sends Access-Control-Allow-Origin: *,
+	//    so this works from any host; it is last so the static copy wins first.
 	try {
-		const r = await fetch("https://opencode.ai/docs/go", {
-			headers: { "user-agent": "Mozilla/5.0" }
-		});
+		const r = await fetch("https://opencode.ai/inference/go/v1/models");
 		if (!r.ok) throw new Error("http " + r.status);
-		const html = await r.text();
-		const models = parsePricing(html);
-		if (!models) throw new Error("pricing table not found");
-		return { models, fetchedAt: new Date().toISOString(), via: "opencode.ai/docs/go" };
+		const models = parsePricing(await r.text());
+		if (!models) throw new Error("models payload not recognised");
+		return { models, fetchedAt: new Date().toISOString(), via: "opencode.ai/inference/go/v1/models" };
 	} catch (e) {
 		if (e instanceof LiveUnavailable) throw e;
 		const msg = (e && e.message) ? e.message : String(e);
@@ -358,14 +348,14 @@ function render() {
 	let text;
 	if (p.source === "live") {
 		const when = p.fetchedAt ? new Date(p.fetchedAt).toLocaleString() : "now";
-		text = "Live data from opencode.ai/docs/go — updated " + when;
-		footSrc.textContent = "Live data source: opencode.ai/docs/go";
+		text = "Live data from the Go models endpoint — updated " + when;
+		footSrc.textContent = "Live data source: opencode.ai/inference/go/v1/models";
 	} else if (p.source === "loading") {
 		text = "Loading live prices…";
 		footSrc.textContent = "";
 	} else {
 		text = "Showing embedded snapshot" + (p.reason ? " — live fetch unavailable: " + p.reason : "");
-		footSrc.textContent = "Data: embedded snapshot (offline) · live source: opencode.ai/docs/go";
+		footSrc.textContent = "Data: embedded snapshot (offline) · live source: opencode.ai/inference/go/v1/models";
 	}
 	srcText.textContent = text;
 	pill.title = text;
