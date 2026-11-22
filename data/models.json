@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-11-22T10:10:54.898Z",
+  "fetchedAt": "2026-11-22T17:58:21.288Z",
   "models": [
     {
       "name": "DeepSeek V4.1 Flash 1017 (Off-Peak)",
@@ -40,7 +40,7 @@
       "out": 4.4,
       "cacheR": 0.26,
       "cacheW": null,
-      "usage": 500
+      "usage": 200
     },
     {
       "name": "Grok 4.7",
@@ -163,14 +163,6 @@
       "usage": 20
     },
     {
-      "name": "LongCat-2.0",
-      "inp": 0.3,
-      "out": 1.2,
-      "cacheR": 0.006,
-      "cacheW": null,
-      "usage": 60
-    },
-    {
       "name": "Step 5 Preview",
       "inp": 1,
       "out": 2.7,
@@ -243,14 +235,6 @@
       "usage": 60
     },
     {
-      "name": "LongCat 2.5 Free",
-      "inp": 0,
-      "out": 0,
-      "cacheR": 0,
-      "cacheW": null,
-      "usage": null
-    },
-    {
       "name": "Hy4 flash Free",
       "inp": 0,
       "out": 0,
@@ -265,6 +249,14 @@
       "cacheR": 0.075,
       "cacheW": 1.875,
       "usage": 15
+    },
+    {
+      "name": "LongCat-2.5",
+      "inp": 0.3,
+      "out": 1.2,
+      "cacheR": 0.006,
+      "cacheW": 0,
+      "usage": 60
     }
   ]
 }
