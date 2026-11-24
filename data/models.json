@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-11-23T17:55:01.392Z",
+  "fetchedAt": "2026-11-24T03:51:17.221Z",
   "models": [
     {
       "name": "DeepSeek V4.1 Flash 1017 (Off-Peak)",
@@ -257,6 +257,14 @@
       "cacheR": 0.006,
       "cacheW": 0,
       "usage": 60
+    },
+    {
+      "name": "HungerG Free",
+      "inp": 0,
+      "out": 0,
+      "cacheR": 0,
+      "cacheW": null,
+      "usage": null
     },
     {
       "name": "Jev 1.14",
