@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-11-24T03:51:17.221Z",
+  "fetchedAt": "2026-11-24T14:35:22.060Z",
   "models": [
     {
       "name": "DeepSeek V4.1 Flash 1017 (Off-Peak)",
@@ -272,7 +272,7 @@
       "out": 0,
       "cacheR": null,
       "cacheW": null,
-      "usage": 15
+      "usage": 10
     },
     {
       "name": "Gemini Decision 1",
@@ -280,7 +280,7 @@
       "out": 0,
       "cacheR": null,
       "cacheW": null,
-      "usage": 15
+      "usage": 10
     },
     {
       "name": "GPT-6 Luna Decision",
@@ -288,7 +288,7 @@
       "out": 0,
       "cacheR": 0.01,
       "cacheW": 0.125,
-      "usage": 15
+      "usage": 10
     },
     {
       "name": "text-embedding-3-small",
@@ -296,7 +296,7 @@
       "out": 0,
       "cacheR": null,
       "cacheW": null,
-      "usage": 15
+      "usage": 10
     },
     {
       "name": "Qwen3 Embedding 8B",
@@ -304,7 +304,7 @@
       "out": 0,
       "cacheR": null,
       "cacheW": null,
-      "usage": 15
+      "usage": 10
     },
     {
       "name": "Gemini Embedding 2",
@@ -312,7 +312,7 @@
       "out": 0,
       "cacheR": null,
       "cacheW": null,
-      "usage": 15
+      "usage": 10
     }
   ]
 }
