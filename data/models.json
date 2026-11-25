@@ -1,6 +1,6 @@
 {
   "source": "live",
-  "fetchedAt": "2026-11-24T23:46:10.860Z",
+  "fetchedAt": "2026-11-25T07:12:32.866Z",
   "models": [
     {
       "name": "DeepSeek V4.1 Flash 1017 (Off-Peak)",
@@ -208,7 +208,7 @@
       "out": 10,
       "cacheR": 0.2,
       "cacheW": 2,
-      "usage": 15
+      "usage": 60
     },
     {
       "name": "Iceman Contributor Free",
